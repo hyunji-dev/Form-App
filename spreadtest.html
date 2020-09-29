@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Document</title>
+    </head>
+    <body>
+        <script>
+            let list = [1, 2, 3, 4, 5];
+
+            console.log(list);
+            console.log(...list); // 배열 아님, for문 돌면서 값을 뿌림
+
+            // 배열 복사할 때 가장 좋은 방법
+            let list5 = [...list]; // 배열, 깊은 복사를 함
+            console.log(list5);
+
+            // concat() 없이 끝에 값 추가한 깊은 복사
+            let list6 = [...list, 6];
+            console.log(list6);
+
+            // 사이에 6 추가해서 깊은 복사하기
+            let list7 = [...list.slice(0, 2), 6, ...list.slice(2, 5)];
+            console.log(list7);
+
+            let user = {
+                id: 1,
+                name: 'ssar',
+            };
+
+            // 반복되는 애가 아니라 이렇게 못씀
+            //console.log(...user);
+
+            // 얕은 복사?
+            console.log({ ...user });
+
+            // 깊은 복사
+            let newUser = { ...user };
+            console.log(newUser);
+
+            // name 값을 cos로 바꿔 깊은 복사
+            let newUser2 = { ...user, name: 'cos' };
+            console.log(newUser2);
+
+            // name 값을 cos로 바꿔 깊은 복사
+            let newUser3 = { ...newUser, id: 3 };
+            console.log(newUser3);
+        </script>
+    </body>
+</html>
